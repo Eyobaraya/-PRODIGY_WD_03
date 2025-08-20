@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic Tac Toe - AI Mode</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Tic Tac Toe</h1>
+    
+    <div class="game-modes">
+      <button class="mode-btn active" data-mode="pvp">Player vs Player</button>
+      <button class="mode-btn" data-mode="ai">Player vs AI</button>
+    </div>
+    
+    <div class="difficulty-levels hidden" id="difficultyLevels">
+      <button class="difficulty-btn active" data-difficulty="easy">Easy</button>
+      <button class="difficulty-btn" data-difficulty="medium">Medium</button>
+      <button class="difficulty-btn" data-difficulty="hard">Hard</button>
+    </div>
+    
+    <div id="status">Player X's turn</div>
+    
+    <div class="board" id="board">
+      <div class="cell" data-index="0"></div>
+      <div class="cell" data-index="1"></div>
+      <div class="cell" data-index="2"></div>
+      <div class="cell" data-index="3"></div>
+      <div class="cell" data-index="4"></div>
+      <div class="cell" data-index="5"></div>
+      <div class="cell" data-index="6"></div>
+      <div class="cell" data-index="7"></div>
+      <div class="cell" data-index="8"></div>
+    </div>
+    
+    <div class="controls">
+      <button id="reset">Reset Game</button>
+      <button id="newGame">New Game</button>
+    </div>
+    
+    <div class="game-info">
+      <div id="difficulty" class="hidden">AI Difficulty: <span id="currentDifficulty">Hard</span></div>
+      <div id="score">Score - X: 0 | O: 0 | Draws: 0</div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

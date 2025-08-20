@@ -1,0 +1,356 @@
+/* CSS Custom Properties for Themes */
+:root {
+  /* 2-Player Mode - Dark + Golden Warmth (Candlelight Ambient) */
+  --pvp-bg: #121212;
+  --pvp-primary: #FFD369;
+  --pvp-secondary: #FFB347;
+  --pvp-accent: #FFD369;
+  --pvp-text: #EDEDED;
+  --pvp-container: rgba(18, 18, 18, 0.95);
+  --pvp-board-bg: #1A1A1A;
+  --pvp-cell-bg: #121212;
+  --pvp-cell-hover: #1A1A1A;
+  --pvp-button-bg: linear-gradient(135deg, #FFD369 0%, #FFB347 100%);
+  --pvp-button-hover: linear-gradient(135deg, #FFC95A 0%, #FFA53A 100%);
+  --pvp-mode-btn-border: #FFD369;
+  --pvp-mode-btn-hover: #FFD369;
+  --pvp-difficulty-btn-border: #FFB347;
+  --pvp-difficulty-btn-hover: #FFB347;
+  --pvp-status-bg: rgba(255, 211, 105, 0.15);
+  --pvp-info-bg: rgba(255, 179, 71, 0.15);
+  
+  /* AI Mode - Robotic + Futuristic Glow (Cyberpunk Ambient) */
+  --ai-bg: #0B0E11;
+  --ai-primary: #00FFC6;
+  --ai-secondary: #7F5AF0;
+  --ai-accent: #00FFC6;
+  --ai-text: #D1D5DB;
+  --ai-container: rgba(11, 14, 17, 0.95);
+  --ai-board-bg: #14171A;
+  --ai-cell-bg: #0B0E11;
+  --ai-cell-hover: #14171A;
+  --ai-button-bg: linear-gradient(135deg, #00FFC6 0%, #7F5AF0 100%);
+  --ai-button-hover: linear-gradient(135deg, #00E6B3 0%, #6B4ADF 100%);
+  --ai-mode-btn-border: #00FFC6;
+  --ai-mode-btn-hover: #00FFC6;
+  --ai-difficulty-btn-border: #7F5AF0;
+  --ai-difficulty-btn-hover: #7F5AF0;
+  --ai-status-bg: rgba(0, 255, 198, 0.15);
+  --ai-info-bg: rgba(127, 90, 240, 0.15);
+  
+  /* Default to 2-player theme */
+  --current-bg: var(--pvp-bg);
+  --current-primary: var(--pvp-primary);
+  --current-secondary: var(--pvp-secondary);
+  --current-accent: var(--pvp-accent);
+  --current-text: var(--pvp-text);
+  --current-container: var(--pvp-container);
+  --current-board-bg: var(--pvp-board-bg);
+  --current-cell-bg: var(--pvp-cell-bg);
+  --current-cell-hover: var(--pvp-cell-hover);
+  --current-button-bg: var(--pvp-button-bg);
+  --current-button-hover: var(--pvp-button-hover);
+  --current-mode-btn-border: var(--pvp-mode-btn-border);
+  --current-mode-btn-hover: var(--pvp-mode-btn-hover);
+  --current-difficulty-btn-border: var(--pvp-difficulty-btn-border);
+  --current-difficulty-btn-hover: var(--pvp-difficulty-btn-hover);
+  --current-status-bg: var(--pvp-status-bg);
+  --current-info-bg: var(--pvp-info-bg);
+}
+
+/* AI Mode Theme */
+body.ai-mode {
+  --current-bg: var(--ai-bg);
+  --current-primary: var(--ai-primary);
+  --current-secondary: var(--ai-secondary);
+  --current-accent: var(--ai-accent);
+  --current-text: var(--ai-text);
+  --current-container: var(--ai-container);
+  --current-board-bg: var(--ai-board-bg);
+  --current-cell-bg: var(--ai-cell-bg);
+  --current-cell-hover: var(--ai-cell-hover);
+  --current-button-bg: var(--ai-button-bg);
+  --current-button-hover: var(--ai-button-hover);
+  --current-mode-btn-border: var(--ai-mode-btn-border);
+  --current-mode-btn-hover: var(--ai-mode-btn-hover);
+  --current-difficulty-btn-border: var(--ai-difficulty-btn-border);
+  --current-difficulty-btn-hover: var(--ai-difficulty-btn-hover);
+  --current-status-bg: var(--ai-status-bg);
+  --current-info-bg: var(--ai-info-bg);
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background: var(--current-bg);
+  color: var(--current-text);
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+.container {
+  text-align: center;
+  background: var(--current-container);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  transition: background 0.5s ease;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: var(--current-text);
+  font-size: 2.5em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: color 0.5s ease;
+}
+
+.game-modes {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.mode-btn {
+  padding: 12px 24px;
+  font-size: 1em;
+  border: 2px solid var(--current-mode-btn-border);
+  border-radius: 25px;
+  cursor: pointer;
+  background: transparent;
+  color: var(--current-mode-btn-border);
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.mode-btn:hover {
+  background: var(--current-mode-btn-hover);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.mode-btn.active {
+  background: var(--current-mode-btn-hover);
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.difficulty-levels {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.difficulty-btn {
+  padding: 8px 16px;
+  font-size: 0.9em;
+  border: 2px solid var(--current-difficulty-btn-border);
+  border-radius: 20px;
+  cursor: pointer;
+  background: transparent;
+  color: var(--current-difficulty-btn-border);
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.difficulty-btn:hover {
+  background: var(--current-difficulty-btn-hover);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.difficulty-btn.active {
+  background: var(--current-difficulty-btn-hover);
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#status {
+  margin: 20px 0;
+  font-size: 1.3em;
+  font-weight: bold;
+  color: var(--current-text);
+  padding: 10px;
+  border-radius: 10px;
+  background: var(--current-status-bg);
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 8px;
+  justify-content: center;
+  margin: 25px auto;
+  background: var(--current-board-bg);
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 0, 0, 0.3);
+  transition: background 0.5s ease;
+  position: relative;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5em;
+  font-weight: bold;
+  background: var(--current-cell-bg);
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  color: var(--current-text);
+}
+
+.cell:hover:not(.taken) {
+  background: var(--current-cell-hover);
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cell.taken {
+  cursor: not-allowed;
+  transform: scale(1);
+}
+
+.cell[data-player="X"] {
+  color: var(--current-primary);
+  text-shadow: 0 0 12px var(--current-primary);
+  filter: drop-shadow(0 0 8px var(--current-primary));
+}
+
+.cell[data-player="O"] {
+  color: var(--current-secondary);
+  text-shadow: 0 0 12px var(--current-secondary);
+  filter: drop-shadow(0 0 8px var(--current-secondary));
+}
+
+/* Enhanced glow effects for different modes */
+body:not(.ai-mode) .cell[data-player="X"] {
+  box-shadow: 0 0 12px rgba(255, 211, 105, 0.6);
+}
+
+body:not(.ai-mode) .cell[data-player="O"] {
+  box-shadow: 0 0 12px rgba(255, 179, 71, 0.6);
+}
+
+body.ai-mode .cell[data-player="X"] {
+  box-shadow: 0 0 14px rgba(0, 255, 198, 0.7);
+}
+
+body.ai-mode .cell[data-player="O"] {
+  box-shadow: 0 0 14px rgba(127, 90, 240, 0.7);
+}
+
+.controls {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin: 25px 0;
+}
+
+button {
+  padding: 12px 24px;
+  font-size: 1em;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  background: var(--current-button-bg);
+  color: white;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.game-info {
+  margin-top: 20px;
+  padding: 15px;
+  background: var(--current-info-bg);
+  border-radius: 10px;
+  transition: background 0.5s ease;
+}
+
+#difficulty {
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: var(--current-secondary);
+  transition: color 0.5s ease;
+}
+
+#score {
+  font-size: 0.9em;
+  color: var(--current-text);
+  transition: color 0.5s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Animation for winning cells */
+@keyframes winner {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.cell.winner {
+  animation: winner 0.6s ease-in-out;
+  background: var(--current-accent);
+  color: white;
+  box-shadow: 0 0 20px var(--current-accent), inset 0 0 20px rgba(255, 255, 255, 0.3);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+    margin: 20px;
+  }
+  
+  .board {
+    grid-template-columns: repeat(3, 80px);
+    grid-template-rows: repeat(3, 80px);
+    gap: 6px;
+    padding: 12px;
+  }
+  
+  .cell {
+    width: 80px;
+    height: 80px;
+    font-size: 2em;
+  }
+  
+  .game-modes {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .controls {
+    flex-direction: column;
+    align-items: center;
+  }
+}
